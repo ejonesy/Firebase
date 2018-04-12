@@ -32,35 +32,38 @@
       name: name,
       destination: destination,
       time: time,
-      frequency: frequency
+      frequency: frequency,
+      // Keeps track of when the info is entered
+      startedAt: firebase.database.ServerValue.TIMESTAMP
     });
 });
-  
-  
+
+    // Declare this variable outside the function so it's not being declared again every time the function is run
+    var tBody = $("tbody");
+
+    // Taking the info from the database to be added to our table
     database.ref().on("child_added", function(snapshot) {
-  
-      // Log everything that's coming out of snapshot
-  
       console.log(snapshot.val());
-  
       console.log(snapshot.val().name);
-  
       console.log(snapshot.val().destination);
-  
       console.log(snapshot.val().time);
-  
       console.log(snapshot.val().frequency);
 
-    // Adds results into table on page
-        var tBody = $("tbody");
-        var tRow = $("<tr>");
-  
-        tRow.append("<td>" + snapshot.val().name + "</td>");
-        tRow.append("<td>" + snapshot.val().destination + "</td>");
-        tRow.append("<td>" + snapshot.val().time + "</td>");
-        tRow.append("<td>" + snapshot.val().frequency + "</td>");
-        
-        tBody.append(tRow);
-        $("#results").append(tBody);
+      // Adds results into table on page
+      var tRow = $("<tr>");
+
+      // Lists the info the user has inputted
+      tRow.append("<td>" + snapshot.val().name + "</td>");
+      tRow.append("<td>" + snapshot.val().destination + "</td>");
+      tRow.append("<td>" + snapshot.val().frequency + " minutes" + "</td>");
+      
+      // Calculates next arrival time
+      tRow.append("<td>" + moment(snapshot.val().startedAt).format("LT") + "</td>");
+
+      // Calculates minutes away
+      tRow.append("<td>" + moment(snapshot.val().frequency, 'h:mm').fromNow() + "<td>");
+      
+      tBody.append(tRow);
+      $("#results").append(tBody);
 
 })

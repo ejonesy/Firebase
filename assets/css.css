@@ -1,8 +1,23 @@
 .jumbotron {
     background-image: url("images/thomas.jpg");
-    padding: 230px;
+    height: 500px;
+    text-align: center;
+    font-size: 30px;
+    text-shadow: 3em 5em chartreuse;
+    color: palevioletred;
 }
 
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container {
+    background-color: palevioletred;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#input {
+    background-color: teal;
+    color: chartreuse;
+    padding: 10px;
 }

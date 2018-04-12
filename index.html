@@ -5,42 +5,52 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="assets/css.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Train, Planes, and Microbes</title>
+    <title>Telling Time With Trains</title>
   </head>
   <body>
+    <div class="jumbotron"><strong>Leaving your Dumb Life Behind is Just a Train Ride Away! Away Away</strong></div>
     <div class="container">
-                
+        <div id="results">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>Current Train Schedule</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-hover" id='train-table'>
+                        <thead>
+                            <tr>
+                                <th>Train Name</th>
+                                <th>Destination</th>
+                                <th>Frequency</th>
+                                <th>Next Arrival</th>
+                                <th>Minutes Away</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+            
         <div id ="input" class = "card"> 
             <h3 class="card-header">Search Train</h3>     
             <p class="card-text">Train Name</p>
             <input type="text"id="name" data-value="">                  
             <p class="card-text">Destination</p>
             <input type="text"id="destination" data-value=""> 
-            <p class="card-text">First available time</p>
+            <p class="card-text">First available time HH:MM</p>
             <input type="text" id="time" data-value="">
             <p class="card-text">Frequency</p>
             <input type="text" id="frequency" data-value="">
             <p></p>
             <button class="btn" id="add">Add Train</button>
         </div>
-        <div id="results">
-            <table>
-                <tbody>
-                    <p class="card-text" id="time">First available time</p> 
-                    <p class="card-text" id="frequency">Frequency</p>
-                    <p class="card-text" id="next-arrival">Next Arrival</p>
-                    <p class="card-text" id="minutes-away">Minutes Away</p>
-                    <p></p>
-                </tbody>
-            </table>
-        </div>
         
         
     </div>
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="assets/js.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="assets/js.js"></script>
     </body>
 </html>
